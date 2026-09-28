@@ -6,8 +6,10 @@ Source of [amootoovaloo.github.io](https://amootoovaloo.github.io), the personal
 
 ```sh
 bundle install
-bundle exec jekyll serve      # http://localhost:4000
+bundle exec jekyll serve --livereload
 ```
+
+Open http://127.0.0.1:4000; pages refresh automatically when you save a file.
 
 ## Publish
 
