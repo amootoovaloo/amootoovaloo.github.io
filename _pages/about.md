@@ -6,7 +6,7 @@ permalink: /about/
 
 <div class="print-header" aria-hidden="true">
 <p class="print-header__name">Arrykrishna Mootoovaloo</p>
-<p class="print-header__meta">London · arrykrish@gmail.com · harry45.github.io · linkedin.com/in/arrykrishna</p>
+<p class="print-header__meta">London · arrykrish@gmail.com · amootoovaloo.github.io · linkedin.com/in/arrykrishna</p>
 </div>
 
 <p align="justify">Arrykrishna Mootoovaloo is a researcher in London who designs statistical and machine learning models that turn complex data into reliable decisions. Before moving into industry, he was a Research Fellow at the University of Oxford, developing deep learning and probabilistic models to accelerate scientific computation. He completed his PhD at Imperial College London, specialising in statistical machine learning, where his research focused on building <b>Gaussian Process</b> emulators to accelerate computationally expensive calculations in cosmology.</p>
