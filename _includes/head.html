@@ -12,12 +12,12 @@
   <meta property="og:title" content="{{ page_title | strip | escape }}">
   <meta property="og:description" content="{{ page_description | strip | escape }}">
   <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <meta property="og:image" content="{{ '/images/harry-headshot.jpg' | prepend: site.baseurl | prepend: site.url }}">
+  <meta property="og:image" content="{{ '/images/site/headshot.jpg' | prepend: site.baseurl | prepend: site.url }}">
   <meta name="twitter:card" content="summary">
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="icon" href="{{ '/images/favicon.svg' | prepend: site.baseurl }}" type="image/svg+xml">
+  <link rel="icon" href="{{ '/images/site/favicon.svg' | prepend: site.baseurl }}" type="image/svg+xml">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0e1116" media="(prefers-color-scheme: dark)">
 
@@ -72,7 +72,7 @@
     "@type": "Person",
     "name": {{ site.title | jsonify }},
     "url": {{ site.url | jsonify }},
-    "image": {{ '/images/harry-headshot.jpg' | prepend: site.url | jsonify }},
+    "image": {{ '/images/site/headshot.jpg' | prepend: site.url | jsonify }},
     "jobTitle": "Quantitative Researcher",
     "worksFor": { "@type": "Organization", "name": "Fuse Energy" },
     "alumniOf": [
