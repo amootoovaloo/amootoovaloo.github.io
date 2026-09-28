@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Workshops & Visits
+title: Workshops
 lead: Workshops, schools and research visits across three continents.
 permalink: /travel/
 # Start each section, and each photo, below the previous photo.

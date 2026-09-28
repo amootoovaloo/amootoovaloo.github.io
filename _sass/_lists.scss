@@ -1,4 +1,4 @@
-// Grouped lists on the More pages: Papers, Books, Talks and Workshops & Visits.
+// Grouped lists on the More pages: Papers, Books, Talks and Workshops.
 
 // Papers and Books reading lists: the title on one line, the journal or
 // author in grey beneath it, so long titles wrap tidily.
@@ -51,7 +51,7 @@
     &.tag--poster { background: var(--surface-2); color: var(--text-2); }
 }
 
-// Workshops & Visits: one line per event (year, event, place).
+// Workshops: one line per event (year, event, place).
 .prose .visit-list {
     list-style: none;
     margin: 0 0 .75rem;
