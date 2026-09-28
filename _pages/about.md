@@ -9,7 +9,7 @@ permalink: /about/
 <p class="print-header__meta">London · arrykrish@gmail.com · amootoovaloo.github.io · linkedin.com/in/arrykrishna</p>
 </div>
 
-<p align="justify">Arrykrishna Mootoovaloo is a quantitative researcher in London who brings probabilistic machine learning from cosmology to energy markets. Before moving into industry, he was a Research Fellow at the University of Oxford, developing deep learning and probabilistic models to accelerate scientific computation. He completed his PhD at Imperial College London, specialising in statistical machine learning, where his research focused on building <b>Gaussian Process</b> emulators to accelerate computationally expensive calculations in cosmology.</p>
+<p align="justify">Arrykrishna Mootoovaloo is a quantitative researcher in London who develops probabilistic and machine learning models, with work spanning cosmology, generative AI and energy markets. Before moving into industry, he was a Research Fellow at the University of Oxford, developing deep learning and probabilistic models to accelerate scientific computation. He completed his PhD at Imperial College London, specialising in statistical machine learning, where his research focused on building <b>Gaussian Process</b> emulators to accelerate computationally expensive calculations in cosmology.</p>
 
 <h2 id="experience">Professional Experience</h2>
 

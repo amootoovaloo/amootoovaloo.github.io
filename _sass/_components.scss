@@ -122,9 +122,6 @@
     color: var(--text-2);
     max-width: 38em;
     margin: 0 0 1.75rem;
-    text-align: justify;
-    hyphens: auto;
-    -webkit-hyphens: auto;
     @include mobile { font-size: 1.08rem; }
 }
 
