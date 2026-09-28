@@ -30,7 +30,8 @@ excerpt_separator: "<!--more-->"
 # google_author: ""
 # google_site_verification: ""
 # bing_webmastertools_id: ""
-# Site pages live in _pages/ (each sets its own permalink)
+# Site pages live in _pages/, grouped like the menu (About, Publications,
+# Blog, More). Each page sets its own permalink, so folders never change URLs.
 include:
   - _pages
 
