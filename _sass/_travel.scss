@@ -1,0 +1,67 @@
+// Workshops & Visits page map (see _includes/travel-map.html).
+
+// Travel page map: countries described on the page are highlighted, and
+// each marker links to its section.
+.travel-map {
+    max-width: 440px;
+    margin: 0 auto 2.5rem;
+
+    svg { display: block; width: 100%; height: auto; }
+
+    figcaption {
+        margin-top: .6em;
+        color: var(--muted);
+        font-size: .88rem;
+        text-align: center;
+    }
+}
+
+.travel-map__land {
+    fill: var(--surface-2);
+    stroke: var(--bg);
+    stroke-width: .5;
+}
+
+.travel-map__place {
+    cursor: pointer;
+    outline: none;
+
+    .travel-map__country {
+        fill: var(--accent);
+        fill-opacity: .28;
+        stroke: var(--bg);
+        stroke-width: .5;
+        transition: fill-opacity .15s ease;
+    }
+    .travel-map__halo {
+        fill: var(--accent);
+        opacity: .18;
+        transform-box: fill-box;
+        transform-origin: center;
+        transition: transform .15s ease, opacity .15s ease;
+    }
+    .travel-map__dot {
+        fill: var(--accent);
+        stroke: var(--bg);
+        stroke-width: 1.5;
+    }
+
+    &:hover, &:focus-visible {
+        .travel-map__country { fill-opacity: .5; }
+        .travel-map__halo { transform: scale(1.35); opacity: .3; }
+    }
+    &:focus-visible .travel-map__dot { stroke: var(--text); stroke-width: 2; }
+}
+
+.travel-map__inset {
+    fill: var(--bg);
+    stroke: var(--border);
+    stroke-width: 1;
+}
+
+.travel-map__label {
+    fill: var(--muted);
+    font-size: 9px;
+    font-weight: 550;
+    letter-spacing: .02em;
+}

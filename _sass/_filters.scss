@@ -1,0 +1,54 @@
+// Search box and filter chips above a list (see filter-bar.html and site.js).
+
+// Search box and filter chips above a list (Blog, Publications, Books,
+// Papers; see filter-bar.html).
+.filter-bar {
+    margin: 0 0 1.75rem;
+}
+
+.filter-bar__search {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    color: var(--text);
+    font: inherit;
+    font-size: .95rem;
+    transition: border-color .15s ease, box-shadow .15s ease;
+    &::placeholder { color: var(--muted); }
+    &:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+}
+
+.filter-bar__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.filter-chip {
+    padding: 4px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--bg);
+    color: var(--text-2);
+    font: inherit;
+    font-size: .82rem;
+    font-weight: 550;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: color .15s ease, border-color .15s ease, background .15s ease;
+    &:hover { color: var(--accent); border-color: var(--accent); }
+    &[aria-pressed="true"] { color: var(--on-accent); background: var(--accent); border-color: var(--accent); }
+}
+
+.filter-bar__status {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: .85rem;
+    &:empty { display: none; }
+}
+
+.is-filtered-out { display: none !important; }

@@ -26,11 +26,17 @@
     .site-footer,
     .skip-link,
     .toc,
+    .reading-progress,
+    .filter-bar,
+    .collapsible-toggle,
+    .heading-anchor,
+    .code-copy,
+    .back-to-top,
+    .lightbox,
+    .travel-map,
     .post-nav,
     .about-photo,
-    .about-quote,
     .jump-links,
-    .pub-filter,
     .pub__actions,
     .pub__abstract,
     .pub__bibtex { display: none !important; }
@@ -59,6 +65,8 @@
     .prose .role ul { margin-top: .15em; }
     .prose .role li { margin: 0; }
     .prose .role::before { box-shadow: none !important; }
+    .prose .role--current::after, .prose .timeline::after { display: none; }
+    .prose .role.is-passed:not(.role--current)::before { background: #fff; }
     .pub { break-inside: avoid; padding: 8px 0; }
 
     // No reveal animations on paper.

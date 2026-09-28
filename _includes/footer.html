@@ -1,6 +1,7 @@
+<button class="back-to-top" type="button" aria-label="Back to top" title="Back to top" data-back-to-top hidden>{% include icon.html name="arrow-up" %}</button>
 <footer class="site-footer">
   <div class="container site-footer__inner">
-    <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }} · <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+    <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }} · <a href="mailto:{{ site.email }}">{{ site.email }}</a><button class="pill copy-email" type="button" data-copy-email="{{ site.email }}" aria-label="Copy email address" hidden>Copy</button></p>
     {% include social.html %}
   </div>
 </footer>

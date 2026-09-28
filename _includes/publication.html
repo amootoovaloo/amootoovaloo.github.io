@@ -1,5 +1,7 @@
 {% assign pub = include.pub %}
-<li class="pub{% if pub.selected %} pub--selected{% endif %}">
+{%- comment -%}Filter tags: "selected", plus one type per venue (see filter-bar.html).{%- endcomment -%}
+{%- capture pub_tags -%}{% if pub.selected %}selected {% endif %}{% assign venues = pub.venue | split: " · " %}{% for v in venues %}{% if v contains "Preprint" %}preprint {% elsif v contains "NeurIPS" or v contains "ICLR" or v contains "ICML" %}workshop {% else %}journal {% endif %}{% endfor %}{%- endcapture -%}
+<li class="pub{% if pub.selected %} pub--selected{% endif %}" data-filter-item data-filter-tags="{{ pub_tags | strip }}">
   <div class="pub__year">{{ pub.year }}</div>
   <div>
     <p class="pub__title">{% if pub.selected %}<span class="pub__star" title="Selected publication" aria-label="Selected publication">&#9733;</span> {% endif %}{{ pub.title }}</p>

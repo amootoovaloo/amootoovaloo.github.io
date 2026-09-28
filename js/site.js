@@ -1,3 +1,55 @@
+// ---------------------------------------------------------------- helpers
+// Shared by the features below.
+
+// Run fn once now, then at most once per animation frame on scroll and resize.
+function onScroll(fn) {
+  var ticking = false;
+  function request() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { ticking = false; fn(); });
+  }
+  window.addEventListener('scroll', request, { passive: true });
+  window.addEventListener('resize', request);
+  fn();
+}
+
+// True when the page is scrolled to (within 2px of) the very bottom.
+function atPageBottom() {
+  return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+}
+
+// Give a heading an id derived from its text (if it has none) and return it.
+function ensureId(heading) {
+  if (heading.id) return heading.id;
+  var base = heading.textContent.trim().toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-') || 'section';
+  var id = base, n = 2;
+  while (document.getElementById(id)) id = base + '-' + n++;
+  heading.id = id;
+  return id;
+}
+
+// Clipboard support (a secure context is required).
+var canCopy = !!(navigator.clipboard && window.isSecureContext);
+
+// Copy text, then briefly mark el as copied: el gets the is-copied class and,
+// if a label is given, shows it in place of its own text.
+function copyWithFeedback(text, el, label) {
+  return navigator.clipboard.writeText(text).then(function () {
+    if (!el.hasAttribute('data-label')) el.setAttribute('data-label', el.textContent);
+    if (label) el.textContent = label;
+    el.classList.add('is-copied');
+    clearTimeout(el.copiedTimer);
+    el.copiedTimer = setTimeout(function () {
+      if (label) el.textContent = el.getAttribute('data-label');
+      el.classList.remove('is-copied');
+    }, 1600);
+  });
+}
+
+// ---------------------------------------------------------------- navigation
+
 // Mobile menu and light/dark theme toggle.
 (function () {
   var header = document.querySelector('[data-header]');
@@ -53,8 +105,40 @@
   });
 })();
 
+// Homepage: reveal the header name once the large hero name has scrolled
+// under the sticky header, so the name never appears twice on screen.
+(function () {
+  var title = document.querySelector('.site-title--hero');
+  var hero = document.querySelector('.hero__title');
+  if (!title) return;
+  if (!hero) { title.classList.add('is-shown'); return; }
+  var header = document.querySelector('[data-header]');
+  onScroll(function () {
+    var offset = header ? header.getBoundingClientRect().bottom : 0;
+    title.classList.toggle('is-shown', hero.getBoundingClientRect().bottom < offset);
+  });
+})();
+
+// "Back to top" button, shown once the reader is well down a long page.
+(function () {
+  var button = document.querySelector('[data-back-to-top]');
+  if (!button) return;
+  button.addEventListener('click', function () {
+    var smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'auto' });
+  });
+  button.hidden = false;
+  onScroll(function () {
+    button.classList.toggle('is-shown', window.scrollY > window.innerHeight * 1.5);
+  });
+})();
+
+// ---------------------------------------------------------------- posts
+
 // Table of contents for long posts: built from the post's section headings
 // (h2, or h1 where a post uses those as sections) when there are at least 3.
+// The section being read (the last heading that has scrolled past the sticky
+// header) is highlighted.
 (function () {
   var nav = document.querySelector('[data-toc]');
   var source = document.querySelector('[data-toc-source]');
@@ -63,20 +147,12 @@
   if (headings.length < 3) headings = source.querySelectorAll('h1');
   if (headings.length < 3) return;
   var list = nav.querySelector('ol');
-  var used = {};
   headings.forEach(function (h) {
-    if (!h.id) {
-      var base = h.textContent.trim().toLowerCase()
-        .replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-') || 'section';
-      var id = base, n = 2;
-      while (used[id] || document.getElementById(id)) id = base + '-' + n++;
-      h.id = id;
-    }
-    used[h.id] = true;
     var li = document.createElement('li');
     var a = document.createElement('a');
-    a.href = '#' + h.id;
+    a.href = '#' + ensureId(h);
     a.textContent = h.textContent.trim();
+    a.title = a.textContent;
     li.appendChild(a);
     list.appendChild(li);
   });
@@ -84,52 +160,286 @@
     nav.querySelector('details').removeAttribute('open');
   }
   nav.hidden = false;
+
+  var links = list.querySelectorAll('a');
+  var header = document.querySelector('[data-header]');
+  onScroll(function () {
+    var line = (header ? header.getBoundingClientRect().bottom : 0) + 24;
+    var current = -1;
+    headings.forEach(function (h, i) { if (h.getBoundingClientRect().top <= line) current = i; });
+    // At the very bottom, the last section is the one being read even if
+    // its heading cannot scroll up as far as the header.
+    if (atPageBottom()) current = headings.length - 1;
+    links.forEach(function (a, i) {
+      a.classList.toggle('is-active', i === current);
+      if (i === current) a.setAttribute('aria-current', 'location');
+      else a.removeAttribute('aria-current');
+    });
+  });
+})();
+
+// Reading progress bar on posts.
+(function () {
+  var bar = document.querySelector('[data-reading-progress]');
+  var body = document.querySelector('[data-toc-source]');
+  if (!bar || !body) return;
+  bar.hidden = false;
+  onScroll(function () {
+    var rect = body.getBoundingClientRect();
+    var total = rect.height - window.innerHeight;
+    var progress = total > 0 ? -rect.top / total : (rect.top < 0 ? 1 : 0);
+    bar.style.setProperty('--progress', Math.min(1, Math.max(0, progress)).toFixed(4));
+  });
+})();
+
+// Section links: hovering a heading shows "#"; clicking it copies a direct
+// link to that section (or simply follows it where copying is unavailable).
+(function () {
+  document.querySelectorAll('.prose h2, .prose h3').forEach(function (h) {
+    if (h.closest('.pub-list, .timeline, figure')) return;
+    var id = ensureId(h);
+    var a = document.createElement('a');
+    a.className = 'heading-anchor';
+    a.href = '#' + id;
+    a.setAttribute('aria-label', 'Copy link to this section');
+    a.textContent = '#';
+    a.addEventListener('click', function (e) {
+      if (!canCopy) return;
+      e.preventDefault();
+      history.replaceState(null, '', '#' + id);
+      copyWithFeedback(location.href.split('#')[0] + '#' + id, a);
+    });
+    h.appendChild(a);
+  });
+})();
+
+// "Copy" button on code blocks.
+(function () {
+  if (!canCopy) return;
+  document.querySelectorAll('.prose figure.highlight, .prose div.highlight').forEach(function (block) {
+    var pre = block.querySelector('pre');
+    if (!pre) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'code-block';
+    block.parentNode.insertBefore(wrap, block);
+    wrap.appendChild(block);
+    var button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'pill code-copy';
+    button.textContent = 'Copy';
+    button.setAttribute('aria-label', 'Copy code');
+    button.addEventListener('click', function () {
+      copyWithFeedback(pre.innerText.replace(/\n+$/, ''), button, 'Copied!');
+    });
+    wrap.appendChild(button);
+  });
+})();
+
+// Image lightbox: select a figure or photo to view it full-screen; Esc, a
+// click anywhere or the close button closes it.
+(function () {
+  if (typeof HTMLDialogElement !== 'function') return;
+  var images = Array.prototype.filter.call(document.querySelectorAll('.prose img'), function (img) {
+    return !img.closest('a, .about-photo');
+  });
+  if (!images.length) return;
+  var dialog = document.createElement('dialog');
+  dialog.className = 'lightbox';
+  dialog.innerHTML = '<button class="lightbox__close" type="button" aria-label="Close">&times;</button>' +
+    '<figure class="lightbox__figure"><img alt=""><figcaption></figcaption></figure>';
+  document.body.appendChild(dialog);
+  var big = dialog.querySelector('img');
+  var caption = dialog.querySelector('figcaption');
+  images.forEach(function (img) {
+    img.classList.add('is-zoomable');
+    img.tabIndex = 0;
+    img.setAttribute('role', 'button');
+    img.setAttribute('aria-label', 'Enlarge image' + (img.alt ? ': ' + img.alt : ''));
+    function open() {
+      var fig = img.closest('figure');
+      var fc = fig && fig.querySelector('figcaption');
+      big.src = img.currentSrc || img.src;
+      big.alt = img.alt;
+      caption.textContent = fc ? fc.textContent.trim() : '';
+      caption.hidden = !caption.textContent;
+      dialog.showModal();
+    }
+    img.addEventListener('click', open);
+    img.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+    });
+  });
+  dialog.addEventListener('click', function () { dialog.close(); });
+})();
+
+// Teaching syllabi: each section folds under its heading. The headings stay
+// visible (so the table of contents still works), and links to a section
+// open it.
+(function () {
+  var root = document.querySelector('[data-collapsible]');
+  if (!root) return;
+  var headings = root.querySelectorAll(':scope > h2');
+  if (headings.length < 2) return;
+  var sections = [];
+  headings.forEach(function (h) {
+    var details = document.createElement('details');
+    details.className = 'collapsible';
+    var summary = document.createElement('summary');
+    h.parentNode.insertBefore(details, h);
+    summary.appendChild(h);
+    details.appendChild(summary);
+    var body = document.createElement('div');
+    body.className = 'collapsible__body';
+    while (details.nextSibling && !(details.nextSibling.nodeType === 1 && details.nextSibling.tagName === 'H2')) {
+      body.appendChild(details.nextSibling);
+    }
+    details.appendChild(body);
+    sections.push(details);
+  });
+
+  var toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'pill collapsible-toggle';
+  function allOpen() { return sections.every(function (d) { return d.open; }); }
+  function label() { toggle.textContent = allOpen() ? 'Collapse all' : 'Expand all'; }
+  toggle.addEventListener('click', function () {
+    var open = !allOpen();
+    sections.forEach(function (d) { d.open = open; });
+    label();
+  });
+  sections.forEach(function (d) { d.addEventListener('toggle', label); });
+  root.insertBefore(toggle, sections[0]);
+  label();
+
+  function openTarget(id) {
+    var el = id && document.getElementById(id);
+    var d = el && el.closest('details.collapsible');
+    if (d) d.open = true;
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (a) openTarget(decodeURIComponent(a.getAttribute('href').slice(1)));
+  });
+  openTarget(decodeURIComponent(location.hash.slice(1)));
+  window.addEventListener('beforeprint', function () { sections.forEach(function (d) { d.open = true; }); });
+})();
+
+// ---------------------------------------------------------------- lists
+
+// Search and filter chips for lists (Blog, Publications, Books, Papers).
+// Items carry data-filter-item and data-filter-tags; headings that label a
+// run of items (data-filter-divider) and lists (data-filter-group) hide when
+// nothing in them matches. The query and chip are kept in the URL
+// (?q=…&tag=…) so a view can be shared.
+(function () {
+  var bar = document.querySelector('[data-filter-bar]');
+  if (!bar) return;
+  var scope = bar.closest('.prose') || document;
+  var search = bar.querySelector('[data-filter-search]');
+  var chipBox = bar.querySelector('[data-filter-chips]');
+  var status = bar.querySelector('[data-filter-status]');
+  var noun = bar.getAttribute('data-filter-noun') || 'items';
+
+  // Lower case, with accents removed, so "poreč" matches "Porec".
+  function fold(s) { return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
+
+  var items = Array.prototype.slice.call(scope.querySelectorAll('[data-filter-item]'));
+  if (!items.length) return;
+  var text = items.map(function (el) { return fold(el.textContent + ' ' + (el.getAttribute('data-filter-text') || '')); });
+  var tags = items.map(function (el) { return (el.getAttribute('data-filter-tags') || '').split(/\s+/); });
+  var chips = chipBox.querySelectorAll('[data-filter-chip]');
+  var dividers = scope.querySelectorAll('[data-filter-divider]');
+  var groups = scope.querySelectorAll('[data-filter-group]');
+  var active = '';
+
+  function visibleItemIn(el) {
+    return el.matches('[data-filter-item]:not(.is-filtered-out)') ||
+      !!el.querySelector('[data-filter-item]:not(.is-filtered-out)');
+  }
+
+  function apply() {
+    var query = search.value.trim();
+    var terms = fold(query).split(/\s+/).filter(Boolean);
+    var shown = 0;
+    items.forEach(function (el, i) {
+      var match = (!active || tags[i].indexOf(active) !== -1) &&
+        terms.every(function (t) { return text[i].indexOf(t) !== -1; });
+      el.classList.toggle('is-filtered-out', !match);
+      if (match) shown++;
+    });
+    groups.forEach(function (g) { g.classList.toggle('is-filtered-out', !visibleItemIn(g)); });
+    dividers.forEach(function (d) {
+      var any = false;
+      for (var n = d.nextElementSibling; n && !n.hasAttribute('data-filter-divider'); n = n.nextElementSibling) {
+        if (visibleItemIn(n)) { any = true; break; }
+      }
+      d.classList.toggle('is-filtered-out', !any);
+    });
+    status.textContent = !(terms.length || active) ? '' :
+      shown ? 'Showing ' + shown + ' of ' + items.length + ' ' + noun + '.' :
+      'No ' + noun + ' match your search.';
+
+    var params = new URLSearchParams(location.search);
+    if (query) params.set('q', query); else params.delete('q');
+    if (active) params.set('tag', active); else params.delete('tag');
+    var qs = params.toString();
+    history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+  }
+
+  function setChip(value) {
+    active = value;
+    chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c.getAttribute('data-filter-chip') === value)); });
+  }
+
+  chipBox.addEventListener('click', function (e) {
+    var chip = e.target.closest('[data-filter-chip]');
+    if (!chip) return;
+    setChip(chip.getAttribute('data-filter-chip'));
+    apply();
+  });
+  search.addEventListener('input', apply);
+
+  var params = new URLSearchParams(location.search);
+  var tag = params.get('tag') || '';
+  var known = Array.prototype.some.call(chips, function (c) { return c.getAttribute('data-filter-chip') === tag; });
+  setChip(known ? tag : '');
+  search.value = params.get('q') || '';
+  bar.hidden = false;
+  if (active || search.value) apply();
 })();
 
 // "BibTeX" buttons on publications: copy the citation to the clipboard, or
-// reveal it for manual copying where the clipboard API is unavailable.
+// reveal it for manual copying where copying is unavailable.
 (function () {
   document.querySelectorAll('[data-copy-bibtex]').forEach(function (button) {
     var pre = button.closest('.pub').querySelector('.pub__bibtex');
     if (!pre) return;
     button.addEventListener('click', function () {
-      var text = pre.textContent;
-      function copied() {
-        button.textContent = 'Copied!';
-        button.classList.add('is-copied');
-        setTimeout(function () { button.textContent = 'BibTeX'; button.classList.remove('is-copied'); }, 1600);
-      }
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).then(copied, function () { pre.hidden = !pre.hidden; });
-      } else {
-        pre.hidden = !pre.hidden;
-      }
+      if (!canCopy) { pre.hidden = !pre.hidden; return; }
+      copyWithFeedback(pre.textContent, button, 'Copied!').catch(function () { pre.hidden = !pre.hidden; });
     });
   });
 })();
 
-// Publications: "All / Selected" switch (hidden until this script runs).
+// Footer "Copy" button beside the email address (shown only where copying
+// is available; the address itself stays a mailto link).
 (function () {
-  var filter = document.querySelector('[data-pub-filter]');
-  var list = document.querySelector('.pub-list');
-  if (!filter || !list || !list.querySelector('.pub--selected')) return;
-  var buttons = filter.querySelectorAll('[data-filter]');
-  buttons.forEach(function (button) {
-    button.addEventListener('click', function () {
-      var selectedOnly = button.getAttribute('data-filter') === 'selected';
-      list.classList.toggle('is-selected-only', selectedOnly);
-      buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b === button)); });
-    });
+  var button = document.querySelector('[data-copy-email]');
+  if (!button || !canCopy) return;
+  button.addEventListener('click', function () {
+    copyWithFeedback(button.getAttribute('data-copy-email'), button, 'Copied!');
   });
-  filter.hidden = false;
+  button.hidden = false;
 })();
 
-// Gentle fade-in as sections scroll into view. The head script only adds
-// .js-reveal when motion is allowed and IntersectionObserver exists, so
-// content is never hidden otherwise.
+// ---------------------------------------------------------------- motion
+// Both effects below are opt-in: the head script only adds .js-reveal when
+// motion is welcome and IntersectionObserver exists, so nothing is hidden
+// otherwise.
+
+// Gentle fade-in as sections scroll into view.
 (function () {
-  var root = document.documentElement;
-  if (!root.classList.contains('js-reveal')) return;
+  if (!document.documentElement.classList.contains('js-reveal')) return;
   var items = document.querySelectorAll('.section, .affiliations, .prose .role, .pub, .post-list__item');
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -145,22 +455,27 @@
   });
 })();
 
-// Homepage: reveal the header name once the large hero name has scrolled
-// under the sticky header, so the name never appears twice on screen.
+// About page timelines: the rule fills with the accent colour, and each dot
+// is filled, as the reader scrolls past it.
 (function () {
-  var title = document.querySelector('.site-title--hero');
-  var hero = document.querySelector('.hero__title');
-  if (!title) return;
-  if (!hero) { title.classList.add('is-shown'); return; }
-  var header = document.querySelector('[data-header]');
-  function update() {
-    var offset = header ? header.getBoundingClientRect().bottom : 0;
-    title.classList.toggle('is-shown', hero.getBoundingClientRect().bottom < offset);
-  }
-  window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update);
-  update();
+  if (!document.documentElement.classList.contains('js-reveal')) return;
+  var timelines = document.querySelectorAll('.prose .timeline');
+  if (!timelines.length) return;
+  onScroll(function () {
+    // At the bottom of the page, everything has been passed.
+    var mark = atPageBottom() ? Infinity : window.innerHeight * 0.6;
+    timelines.forEach(function (tl) {
+      var rect = tl.getBoundingClientRect();
+      var progress = Math.min(1, Math.max(0, (mark - rect.top) / rect.height));
+      tl.style.setProperty('--tl-progress', progress.toFixed(4));
+      tl.querySelectorAll('.role').forEach(function (role) {
+        role.classList.toggle('is-passed', role.getBoundingClientRect().top + 8 < mark);
+      });
+    });
+  });
 })();
+
+// ---------------------------------------------------------------- page load
 
 // Re-apply #section links once the page (and its lazy images) have loaded,
 // so links such as /travel/#europe land on the right heading.

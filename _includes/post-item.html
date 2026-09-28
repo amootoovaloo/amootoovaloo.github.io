@@ -1,6 +1,6 @@
 {%- assign p = include.post -%}
 {%- assign date_format = include.date_format | default: "%b %Y" -%}
-<li class="post-list__item">
+<li class="post-list__item" data-filter-item data-filter-tags="{% for c in p.categories %}{{ c | slugify }} {% endfor %}" data-filter-text="{{ p.categories | join: ' ' | escape }}">
   <time datetime="{{ p.date | date: '%Y-%m-%d' }}">{{ p.date | date: date_format }}</time>
   <div>
     <div class="post-list__head">

@@ -1,0 +1,150 @@
+// Reading aids on posts and pages: the table of contents in the margin,
+// reading progress, section links, code copy and collapsible sections.
+
+// On wide screens the table of contents moves into the left margin and
+// follows the reader down the post, highlighting the current section.
+// The panel is wide enough for the longest heading on one line (about
+// 280px); the breakpoint leaves room for it beside the 720px column.
+@media (min-width: 1420px) {
+    .post { position: relative; }
+
+    .post .toc {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: calc(100% + 32px);
+        width: 300px;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: none;
+
+        details {
+            position: sticky;
+            top: 96px;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+        summary {
+            list-style: none;
+            pointer-events: none;
+            margin-bottom: .7em;
+            color: var(--muted);
+            font-size: .75rem;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            &::-webkit-details-marker { display: none; }
+        }
+        ol {
+            columns: 1;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border-left: 1px solid var(--border);
+            font-size: .85rem;
+        }
+        li { margin: 0; }
+        a {
+            display: block;
+            margin-left: -1px;
+            padding: 4px 0 4px 14px;
+            border-left: 2px solid transparent;
+            line-height: 1.4;
+            // One line per entry; a longer future heading ends in an ellipsis
+            // (its full text is in the link's title).
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        a.is-active { font-weight: 550; border-left-color: var(--accent); }
+    }
+}
+
+// Reading progress on posts: a thin accent bar across the top of the window.
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 60;
+    height: 3px;
+    background: var(--accent);
+    transform-origin: left;
+    transform: scaleX(var(--progress, 0));
+    pointer-events: none;
+}
+
+// Section links: a "#" beside headings that copies a direct link.
+.heading-anchor {
+    margin-left: .4em;
+    color: var(--muted);
+    font-weight: 400;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity .15s ease, color .15s ease;
+    &:hover, &:focus-visible { color: var(--accent); text-decoration: none; }
+    &:focus-visible { opacity: 1; }
+
+    &.is-copied { opacity: 1; color: var(--accent); }
+    &.is-copied::after {
+        content: "Link copied";
+        margin-left: .5em;
+        font-size: .8rem;
+        font-weight: 550;
+        vertical-align: middle;
+    }
+}
+.prose h2:hover .heading-anchor,
+.prose h3:hover .heading-anchor { opacity: 1; }
+@media (hover: none) { .heading-anchor { opacity: .5; } }
+
+// Code blocks: a "Copy" button in the top-right corner.
+.code-block {
+    position: relative;
+    margin: 0 0 1.4em;
+    > .highlight, > figure.highlight { margin: 0; }
+}
+.code-copy {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 1px 10px;
+    font-size: .75rem;
+    opacity: .85;
+    &:hover, &:focus-visible, &.is-copied { opacity: 1; }
+}
+
+// Teaching syllabi: sections fold under their headings (see site.js).
+.collapsible-toggle { margin: 0 0 1rem; }
+
+.prose details.collapsible {
+    border-bottom: 1px solid var(--border);
+
+    > summary {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: .35rem 0;
+        cursor: pointer;
+        list-style: none;
+        &::-webkit-details-marker { display: none; }
+
+        // A chevron that turns when the section opens.
+        &::before {
+            content: "";
+            flex: none;
+            width: 8px;
+            height: 8px;
+            margin-left: 2px;
+            border-right: 2px solid var(--muted);
+            border-bottom: 2px solid var(--muted);
+            transform: rotate(-45deg);
+            transition: transform .15s ease;
+        }
+        h2 { margin: .5em 0; }
+        &:hover h2 { color: var(--accent); }
+    }
+    &[open] > summary::before { transform: rotate(45deg); }
+}
+
+.collapsible__body { padding: 0 0 1rem 22px; }

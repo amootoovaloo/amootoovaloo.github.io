@@ -1,5 +1,5 @@
 // Reusable building blocks: buttons, social links, hero, cards,
-// publication entries, post lists, category chips.
+// publication entries and post lists.
 
 // ---------------------------------------------------------------- buttons
 
@@ -43,6 +43,32 @@
         &:hover { color: var(--accent); background: var(--accent-soft); }
     }
     svg { width: 19px; height: 19px; }
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 11px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--bg);
+    color: var(--text-2);
+    font: inherit;
+    font-size: .8rem;
+    font-weight: 550;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: color .15s ease, border-color .15s ease, background .15s ease;
+    &:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); text-decoration: none; }
+    &.is-copied { color: var(--on-accent); background: var(--accent); border-color: var(--accent); }
+}
+
+// "Copy" button beside the email address in the footer.
+.copy-email {
+    margin-left: 6px;
+    padding: 1px 9px;
+    font-size: .75rem;
+    vertical-align: 1px;
 }
 
 // ---------------------------------------------------------------- home
@@ -298,32 +324,6 @@
     line-height: 1.6;
 }
 
-// "All / Selected" switch above the publication list.
-.pub-filter {
-    display: inline-flex;
-    gap: 2px;
-    padding: 3px;
-    margin: 0 0 1.25rem;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: var(--surface);
-
-    button {
-        padding: 4px 14px;
-        border: 0;
-        border-radius: 999px;
-        background: transparent;
-        color: var(--text-2);
-        font: inherit;
-        font-size: .85rem;
-        font-weight: 550;
-        cursor: pointer;
-        transition: background .15s ease, color .15s ease;
-        &:hover { color: var(--text); }
-        &[aria-pressed="true"] { background: var(--bg); color: var(--text); box-shadow: 0 1px 2px rgba(16, 24, 40, .12); }
-    }
-}
-
 // Scroll fade-in (only active under html.js-reveal; see site.js).
 .js-reveal .reveal {
     opacity: 0;
@@ -332,31 +332,12 @@
 }
 .js-reveal .reveal.is-visible { opacity: 1; transform: none; }
 
-.pub-list.is-selected-only .pub:not(.pub--selected) { display: none; }
 
 .pub__actions {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
     margin-top: .55em;
-}
-
-.pill {
-    display: inline-flex;
-    align-items: center;
-    padding: 3px 11px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: var(--bg);
-    color: var(--text-2);
-    font: inherit;
-    font-size: .8rem;
-    font-weight: 550;
-    line-height: 1.5;
-    cursor: pointer;
-    transition: color .15s ease, border-color .15s ease, background .15s ease;
-    &:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); text-decoration: none; }
-    &.is-copied { color: var(--on-accent); background: var(--accent); border-color: var(--accent); }
 }
 
 .pub__star { color: #e0a100; }
@@ -516,6 +497,7 @@
     }
     li { margin: 0 0 .35em; break-inside: avoid; }
     a { color: var(--text-2); &:hover { color: var(--accent); } }
+    a.is-active { color: var(--accent); font-weight: 600; }
 }
 
 .post-nav {
@@ -560,24 +542,4 @@
     padding-top: 1.5rem;
     border-top: 1px solid var(--border);
     font-weight: 550;
-}
-
-.chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    list-style: none;
-    margin: 0 0 2rem;
-    padding: 0;
-
-    a {
-        display: inline-block;
-        padding: 6px 12px;
-        border-radius: 999px;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        color: var(--text-2);
-        font-size: .9rem;
-        &:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
-    }
 }

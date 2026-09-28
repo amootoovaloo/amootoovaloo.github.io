@@ -1,15 +1,16 @@
 ---
 layout: default
 ---
+{% if page.collection == "posts" %}<div class="reading-progress" data-reading-progress aria-hidden="true" hidden></div>{% endif %}
 <div class="container container--prose">
-  <article>
+  <article class="post">
     <header class="post-header">
       <h1>{{ page.title }}</h1>
       {% if page.description %}<p class="post-lead">{{ page.description }}</p>{% endif %}
       <p class="post-meta">
         <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
         <span>{% include reading-time.html content=content %}</span>
-        {% for cat in page.categories %}<a href="{{ '/categories/' | prepend: site.baseurl }}#{{ cat | slugify }}">{{ cat }}</a>{% endfor %}
+        {% for cat in page.categories %}<a href="{{ '/blog/' | prepend: site.baseurl }}?tag={{ cat | slugify }}">{{ cat }}</a>{% endfor %}
       </p>
     </header>
 
@@ -20,7 +21,7 @@ layout: default
       </details>
     </nav>
 
-    <div class="prose" data-toc-source>
+    <div class="prose" data-toc-source{% if page.collapsible %} data-collapsible{% endif %}>
       {{ content }}
     </div>
   </article>
