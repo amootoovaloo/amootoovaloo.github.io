@@ -14,7 +14,7 @@ excerpt:
 description: "Three ways to sample any distribution, from SciPy to interpolation."
 ---
 
-<p align="justify">I recently needed to work out how to sample from an arbitrary distribution. Although this may seem a trivial question, a web search did not help much, and I also posted the problem on <a href="https://stackoverflow.com/questions/40263486/drawing-random-samples-from-any-distribution">Stack Overflow</a>. Here, we present three methods for generating random numbers from a distribution: built-in functions in <code>scipy</code>, acceptance-rejection sampling, and an interpolation method. The distribution we use is</p>
+<p align="justify">Drawing random samples from an arbitrary distribution is a common task, yet practical guidance on it is surprisingly scattered. Here, we present three methods for generating random numbers from a distribution: built-in functions in <code>scipy</code>, acceptance-rejection sampling, and an interpolation method. The distribution we use is</p>
 
 \begin{align}
 \mathcal{P}\left(x\right) = \dfrac{k\,x^3}{e^{2x} - 0.1}
@@ -58,13 +58,13 @@ samples = blackbody_distribution.rvs(const = norm_constant, size = 1E4)
 
 {% endhighlight %}
 
-{% include image.html url="/images/scipy_continuous.jpg" caption="Samples generated using <code>rv_continuous</code> from <code>scipy.stats</code>" width=700 align="center" %}
+{% include image.html url="/images/blog/sampling-distributions/scipy-samples.webp" caption="Samples generated using <code>rv_continuous</code> from <code>scipy.stats</code>" width=700 align="center" %}
 
 <p align="justify">The plot above shows the PDF, the CDF and 10 000 random samples drawn from the distribution. <code>rv_continuous</code> is particularly useful when more than just samples are needed: once it is defined, other properties such as the mean and standard deviation are readily available (see the <a href="https://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.stats.rv_continuous.html">documentation</a> for further details).</p>
 
 <h2>Acceptance-Rejection Sampling</h2>
 
-{% include image.html url="/images/circle_accept_reject.jpg" caption="Estimating value of $\pi$ using Monte Carlo Method" width=265 align="right" %}
+{% include image.html url="/images/blog/sampling-distributions/monte-carlo-pi.webp" caption="Estimating value of $\pi$ using Monte Carlo Method" width=265 align="right" %}
 
 <p align="justify">Imagine a square board of side $l$, with a circle of radius $0.5l$ at its centre, that is, at $\left(0.5l,0.5l\right)$ in Cartesian coordinates. Suppose we throw darts randomly at the board $N$ times. If $n$ darts land inside the circle, the probability of hitting the circle is simply $\frac{n}{N}$, which is approximately the ratio of the area of the circle to that of the board. This idea gives a rough estimate of $\pi$:</p>
 \begin{align}
@@ -100,6 +100,6 @@ def genSamples(N):
 own_samples = genSamples(1E4)
 {% endhighlight %}
 
-{% include image.html url="/images/own_cdf_pdf_samples.jpg" caption="Samples generated using the CDF and interpolation method" width=700 align="center" %}
+{% include image.html url="/images/blog/sampling-distributions/cdf-samples.webp" caption="Samples generated using the CDF and interpolation method" width=700 align="center" %}
 
 <p align="justify">This gives 10 000 random samples drawn using the CDF, and the result closely matches the one obtained with <code>rv_continuous</code>.</p>

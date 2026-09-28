@@ -17,7 +17,7 @@ description: "The steps I follow to take a research idea to a first-author paper
 
 <ol>
 	<li><b>Project definition</b></li>
-	<p align="justify">The first step is to define the project. There is, however, always an element of risk at this stage: some of my friends have found that their projects no longer seemed promising after several months of work.</p>	
+	<p align="justify">The first step is to define the project. There is, however, always an element of risk at this stage: researchers sometimes find that their projects no longer seemed promising after several months of work.</p>	
 	<li><b>Brainstorming</b></li>
 	<p align="justify">To avoid the pitfalls described above, I strongly recommend holding brainstorming sessions with your collaborators to identify possible risks and limitations.</p>
 	<blockquote>
@@ -52,10 +52,7 @@ description: "The steps I follow to take a research idea to a first-author paper
 	<li>Have at least one mentor. I have found it easy to talk to my collaborator, who is a Research Fellow.</li>
 	<li>Always take notes. We live in a world with a wealth of information, and it is important to organise ideas and information.</li>
 	<li>Do not work in isolation. In other words, do not pigeonhole yourself.</li>
-	<li>Ask questions. There is no such thing as a stupid question.</li>
-	<blockquote>
-	<p align="justify"><small><i>"If you ask a stupid question, you may feel stupid; if you don't ask a stupid question, you remain stupid."</i> - Tony Rothman</small></p>
-	</blockquote>
+	<li>Ask questions early and often; resolving a misunderstanding quickly saves time later.</li>
 	<li>Understanding is key. Some work is largely engineering, but we should still be able to explain the concepts behind it.</li>
 	<li>Acknowledge when you do not understand something; when we seek knowledge, help and support, we will receive it.</li>
 </ol>

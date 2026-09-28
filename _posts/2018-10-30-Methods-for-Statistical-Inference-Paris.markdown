@@ -14,7 +14,7 @@ excerpt:
 description: "Bayesian and machine learning methods for the next decade of cosmology."
 ---
 
-{% include image.html url="/images/ihp.jpg" caption="Institut Henri Poincaré" width=350 align="right" %}
+{% include image.html url="/images/blog/statistical-inference-paris/ihp.jpg" caption="Institut Henri Poincaré" width=350 align="right" %}
 
 <p align="justify">I attended the Methods for Statistical Inference school, held from 22 to 26 October 2018 at the Institut Henri Poincaré in Paris. The school aimed not only to foster collaboration but also to assess whether we have the right tools for cosmology over the next decade. A particular focus was on extracting the maximum cosmological information from data and on identifying new techniques and methods to achieve this.</p> 
 

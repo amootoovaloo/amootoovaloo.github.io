@@ -29,5 +29,5 @@ $$
 
 <p align="justify">However, computing the theoretical predictions at each step of an MCMC can still be costly when the forward model itself is expensive. We therefore first generate a training set of $N$ Latin Hypercube samples (LHS), compute the MOPED coefficients at these points, and then model them with $p$ separate Gaussian Processes. These serve as surrogates for sampling the posterior distribution of the model parameters, with the result shown in the figure below: the posterior obtained with the full, accurate solver CLASS is shown in tan, and the posterior obtained with the emulator in blue. The contours correspond to the 68% and 95% credible intervals.</p>
 
-{% include image.html url="/images/triangle_plot_derived_sigma_8_semi_gp_maximin_1000_7D.jpg" caption="The full posterior distribution of all parameters using the MOPED compression scheme."  width=800 align="center" %}
+{% include image.html url="/images/blog/moped-gp/posterior.webp" caption="The full posterior distribution of all parameters using the MOPED compression scheme."  width=800 align="center" %}
 

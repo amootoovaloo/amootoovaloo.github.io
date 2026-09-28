@@ -16,7 +16,7 @@ description: "Evidence for a Gaussian linear model, plus the Savage-Dickey ratio
 
 <p align="justify">Following our recent post on <a href="/blog/2017/05/Bayesian-Model-Selection">Bayesian Model Selection</a>, we now illustrate it with a simple example: calculating the Bayesian evidence for the <a href="/blog/2017/03/Linear-Regression">Gaussian Linear Model</a>. Consider the figure below.</p>
 
-<img src="/images/TwoModels.jpg" alt="Noisy data fitted by two polynomial models" align="left" width = "410"/>
+<img src="/images/blog/bayesian-evidence/two-models.webp" alt="Noisy data fitted by two polynomial models" align="left" width = "410"/>
 
 
 <p align="justify">Our data are dominated by noise, $\mathbf{n}\sim\mathcal{N}(0,\,0.02)$. We consider two models, $\mathcal{M}_{1}$ and $\mathcal{M}_{2}$:</p>

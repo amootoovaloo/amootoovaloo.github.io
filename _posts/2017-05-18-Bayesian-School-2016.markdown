@@ -56,4 +56,4 @@ $$
 
 <p align="justify">Consider the case $X=10$ and $Y=15$. The left panel of the figure below shows the posterior distribution of $m$ from the formula above, and the right panel shows the joint posterior distribution of $x$ and $m$ obtained with Gibbs sampling.</p>
 
-{% include image.html url="/images/posterior_m.jpg" caption="The left panel shows the posterior distribution of $m$ while the right panel shows the joint posterior distribution of $x$ and $m$ using Gibbs Sampling."  width=800 align="center" %}
+{% include image.html url="/images/blog/bayesian-school-2016/posterior-m.webp" caption="The left panel shows the posterior distribution of $m$ while the right panel shows the joint posterior distribution of $x$ and $m$ using Gibbs Sampling."  width=800 align="center" %}

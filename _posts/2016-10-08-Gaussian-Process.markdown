@@ -19,7 +19,7 @@ description: "How Gaussian Processes do regression, with and without noise."
 
 <p align="justify">Everything a GP does rests on one property of the multivariate normal distribution: if two variables are jointly Gaussian, then fixing one of them leaves the other Gaussian too. Geometrically, taking a slice through a 2D Gaussian yields another Gaussian, as shown below. Its mean shifts towards the value we fixed, by an amount that depends on how strongly the two variables are correlated, and its variance shrinks, because knowing one variable tells us something about the other.</p>
 
-<p align="center"><img src="/images/2D-Gaussian.png" alt="2D Gaussian Distribution" width="60%" height="60%"></p>
+<p align="center"><img src="/images/blog/gaussian-processes/2d-gaussian.webp" alt="2D Gaussian Distribution" width="60%" height="60%"></p>
 
 <h2>GP for Regression</h2>
 
@@ -49,8 +49,8 @@ $$
 
 <p align="justify">Below are two examples, with both kernel parameters set to 1 for illustration. In the first, the GP learns a sine function on $[0,\,2\pi]$ from noise-free, equally spaced data.</p>
 
-<p align="center"><img src="/images/example_1_uniform.png" alt="Gaussian Process fit to noise-free, evenly spaced samples of a sine function" width="60%" height="60%"></p>
+<p align="center"><img src="/images/blog/gaussian-processes/example-uniform.webp" alt="Gaussian Process fit to noise-free, evenly spaced samples of a sine function" width="60%" height="60%"></p>
 
 <p align="justify">In the second, the data are noisy and unevenly spaced. The key point is that the GP reflects our level of confidence depending on where data are available: predictions are more confident where there are more data, and less confident where there are none.</p>
 
-<p align="center"><img src="/images/example_1_non_uniform.png" alt="Gaussian Process fit to noisy, unevenly spaced data, with wider uncertainty where data are sparse" width="60%" height="60%"></p>
+<p align="center"><img src="/images/blog/gaussian-processes/example-non-uniform.webp" alt="Gaussian Process fit to noisy, unevenly spaced data, with wider uncertainty where data are sparse" width="60%" height="60%"></p>

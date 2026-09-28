@@ -17,7 +17,7 @@ description: "Likelihood emulation with Gaussian Processes and Bayesian optimisa
 ---
 <p align="justify">The paper '<b><font size="2.5">Cosmological parameter estimation via iterative emulation of likelihoods</font></b>' was recently posted on <a href="https://arxiv.org/abs/1912.08806">arXiv</a>. The idea is to use a Gaussian Process to emulate the log-likelihood and to progressively augment the training set using Bayesian Optimisation. In this post, I illustrate the technique with a simple straight-line fitting example, which should be easy to follow.</p>
 
-<img src="/images/bo.png" alt="Gaussian Process emulator of the log-likelihood with its acquisition function" align="right" width = "400" style = "margin-left: 10px; margin-bottom: 10px"/>
+<img src="/images/blog/likelihood-emulation/acquisition.webp" alt="Gaussian Process emulator of the log-likelihood with its acquisition function" align="right" width = "400" style = "margin-left: 10px; margin-bottom: 10px"/>
 
 <p><b><font size="3">Analytical Posterior</font></b></p>
 
@@ -64,7 +64,7 @@ We start with just four training points (generated using Latin Hypercube Samplin
  <tr><td align="center"><font color="red">1.0369</font></td><td align="center"><font color="red">-21.2069</font></td></tr>
 </tbody></table>
 
-<img src="/images/BO-Algorithm.png" alt="Bayesian Optimisation algorithm for iteratively adding training points" align="right" width = "600" style = "margin-right: 10px; margin-bottom: 10px"/>
+<img src="/images/blog/likelihood-emulation/algorithm.webp" alt="Bayesian Optimisation algorithm for iteratively adding training points" align="right" width = "600" style = "margin-right: 10px; margin-bottom: 10px"/>
 
 <p><b><font size="3">Results and Conclusions</font></b></p>
 
@@ -72,7 +72,7 @@ We start with just four training points (generated using Latin Hypercube Samplin
 In this setup, we can reconstruct the log-likelihood almost perfectly after augmenting the data set in just two iterations. As the right-hand panel below shows, the resulting posterior distribution of $\theta$ is identical to the exact, analytically derived one. The vertical dashed line marks the value $\theta=1$ used to generate the data.
 </p>
 
-<img src="/images/finalPosterior.png" alt="Emulated log-likelihood and resulting posterior compared with the exact posterior" align="center" width = "800" style = "margin-bottom: 0.1px"/>
+<img src="/images/blog/likelihood-emulation/posterior.webp" alt="Emulated log-likelihood and resulting posterior compared with the exact posterior" align="center" width = "800" style = "margin-bottom: 0.1px"/>
 
 <p align="justify">
 In high dimensions, however, the volume of the parameter space grows, and reconstructing a function perfectly (if that is the main objective) becomes difficult. Moreover, the acquisition functions themselves have multiple local optima (as seen in the figure at the top), and the choice of acquisition function is an interesting research question in its own right. Acquisition functions can be greedy, favouring exploitation over exploration, so the choice of $\alpha$ also matters.

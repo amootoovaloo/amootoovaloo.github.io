@@ -52,7 +52,7 @@ $$
 
 <h2>Example - A Physics Problem</h2>
 
-<img src="/images/Linear_Regression_Circuit.png" alt="Circuit with a potentiometer, an LED and a voltmeter" align="left" width = "420"/>
+<img src="/images/blog/linear-regression/circuit.webp" alt="Circuit with a potentiometer, an LED and a voltmeter" align="left" width = "420"/>
 
 <p align="justify">We now apply this method to a physics problem (Physics 9702, November 2016, Paper 52). A student is investigating the characteristics of different light-emitting diodes (LEDs). Each LED
 needs a minimum potential difference across it to emit light. The circuit is set up as shown on the left. </p>
@@ -66,7 +66,7 @@ V=p\lambda^{q}
 
 where $p$ and $q$ are constants. Taking logarithms turns this into a straight line: if we plot $\textrm{lg }V$ against $\textrm{lg }\lambda$, the gradient is $q$ and the $y$-intercept is $\textrm{lg }p$, so the method above applies directly.</p>
 
-<img src="/images/Linear_Regression_Data.png" alt="Measured lg V against lg wavelength, each point drawn as a Gaussian" align="right" width = "420"/>
+<img src="/images/blog/linear-regression/data.webp" alt="Measured lg V against lg wavelength, each point drawn as a Gaussian" align="right" width = "420"/>
 
 <p align="justify">The values of $V$ and $\lambda$ are given in the table below, together with $\textrm{lg }\lambda$ and $\textrm{lg }V$ and its associated error, which is the fractional error in $V$. We calculate $\textrm{lg }\lambda$ and $\textrm{lg }V$ to two decimal places, and assume that each data point is Gaussian distributed with mean $\mu=\textrm{lg }V$ and standard deviation $\sigma = \sigma_{\textrm{lg }V}$, as illustrated on the right. Plotting $\textrm{lg }V$ against $\textrm{lg }\lambda$, we find a gradient of $-2.60$ and a $y$-intercept of $7.56$.</p>
 
@@ -90,11 +90,11 @@ where $p$ and $q$ are constants. Taking logarithms turns this into a straight li
 
 <div style="display: flex; flex-wrap: wrap; gap: 1.5em; justify-content: center; margin: 1.5em 0;">
   <figure class="figure" style="flex: 1 1 260px; margin: 0;">
-    <img src="/images/Linear_Regression_Fit.png" alt="Straight-line fit to lg V against lg wavelength with error bars" loading="lazy">
+    <img src="/images/blog/linear-regression/fit.webp" alt="Straight-line fit to lg V against lg wavelength with error bars" loading="lazy">
     <figcaption>The best-fit straight line through the data.</figcaption>
   </figure>
   <figure class="figure" style="flex: 1 1 260px; margin: 0;">
-    <img src="/images/Linear_Regression_Correlation.png" alt="Joint distribution of lg p and q showing their negative correlation" loading="lazy">
+    <img src="/images/blog/linear-regression/correlation.webp" alt="Joint distribution of lg p and q showing their negative correlation" loading="lazy">
     <figcaption>Joint distribution of the two parameters, with 1&sigma;, 2&sigma; and 3&sigma; contours.</figcaption>
   </figure>
 </div>

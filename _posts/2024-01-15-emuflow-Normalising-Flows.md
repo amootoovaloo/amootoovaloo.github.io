@@ -2,7 +2,7 @@
 layout: post
 mathjax: true
 title:  "emuflow: Combining Experiments with Normalising Flows"
-date:   2026-09-27 08:00:00
+date:   2024-01-15 08:00:00
 author: A.Mootoovaloo
 permalink:
 categories:
@@ -41,7 +41,7 @@ $$
   <li><b>Two flows only:</b> the joint posterior takes under 15 minutes on a desktop. The price is accuracy: means shift by up to about $0.3\sigma$, which is expected given how much the result relies on the tails.</li>
 </ul>
 
-{% include image.html url="/images/triangle_plot_fd_planck_flow.png" caption="Joint constraints from the large-scale structure data and Planck. Using the Planck flow as a prior (green) recovers the full joint analysis (dark blue)." width=700 align="center" %}
+{% include image.html url="/images/blog/emuflow/posterior.webp" caption="Joint constraints from the large-scale structure data and Planck. Using the Planck flow as a prior (green) recovers the full joint analysis (dark blue)." width=700 align="center" %}
 
 <p align="justify">Further tests, combining KiDS-1000 with DES Y3 and Planck with DES Y1, involve milder tension but less Gaussian posteriors, and lead to the same conclusions.</p>
 

@@ -19,9 +19,9 @@ description: "Doing science directly on radio visibilities with Bayesian inferen
 ---
 
 
-{% include image.html url="/images/superJEDI.jpg" caption="superJEDI in 2013 at Flic En Flac" width=420 align="right" %}
+{% include image.html url="/images/blog/biro/superjedi.webp" caption="superJEDI in 2013 at Flic En Flac" width=420 align="right" %}
 
-<p align="justify">The superJEDI was held in 2013 at Flic en Flac, Mauritius. I did not attend, as I was then in the second year of my undergraduate studies; however, Sheean and Suraj, who later became my friends, took part. What makes JEDIs distinctive is that they are exactly the kind of meeting where brilliant ideas emerge and go on to become publications. In my view, the main reason is the active participation of everyone involved, from undergraduates to the most senior researchers.</p>
+<p align="justify">The superJEDI was held in 2013 at Flic en Flac, Mauritius. I did not attend, as I was then in the second year of my undergraduate studies; however, Sheean and Suraj took part. What makes JEDIs distinctive is that they are exactly the kind of meeting where new ideas emerge and go on to become publications. In my view, the main reason is the active participation of everyone involved, from undergraduates to the most senior researchers.</p>
 
 <p align="justify">One day during the event, while Nadeem and Bruce were walking along the seaside, Bruce proposed developing a Bayesian formalism for radio interferometry. This led to the BIRO (Bayesian Inference for Radio Observations) project.</p>
 
