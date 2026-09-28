@@ -9,10 +9,8 @@ permalink: /publications/
 
 ## Papers and preprints
 
-<div class="pub-filter" role="group" aria-label="Filter publications" data-pub-filter hidden>
-  <button type="button" data-filter="all" aria-pressed="true">All</button>
-  <button type="button" data-filter="selected" aria-pressed="false">&#9733; Selected</button>
-</div>
+{% capture chips %}<button class="filter-chip" type="button" data-filter-chip="selected" aria-pressed="false">&#9733; Selected</button><button class="filter-chip" type="button" data-filter-chip="journal" aria-pressed="false">Journal</button><button class="filter-chip" type="button" data-filter-chip="workshop" aria-pressed="false">Conference &amp; workshop</button><button class="filter-chip" type="button" data-filter-chip="preprint" aria-pressed="false">Preprint</button>{% endcapture %}
+{% include filter-bar.html label="Search publications" placeholder="Search by title, author, topic or year…" noun="publications" chips=chips %}
 
 <ol class="pub-list">
 {% for pub in site.data.publications %}

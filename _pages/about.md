@@ -9,7 +9,7 @@ permalink: /about/
 <p class="print-header__meta">London · arrykrish@gmail.com · amootoovaloo.github.io · linkedin.com/in/arrykrishna</p>
 </div>
 
-<p align="justify">Arrykrishna Mootoovaloo is a researcher in London who designs statistical and machine learning models that turn complex data into reliable decisions. Before moving into industry, he was a Research Fellow at the University of Oxford, developing deep learning and probabilistic models to accelerate scientific computation. He completed his PhD at Imperial College London, specialising in statistical machine learning, where his research focused on building <b>Gaussian Process</b> emulators to accelerate computationally expensive calculations in cosmology.</p>
+<p align="justify">Arrykrishna Mootoovaloo is a quantitative researcher in London who brings probabilistic machine learning from cosmology to energy markets. Before moving into industry, he was a Research Fellow at the University of Oxford, developing deep learning and probabilistic models to accelerate scientific computation. He completed his PhD at Imperial College London, specialising in statistical machine learning, where his research focused on building <b>Gaussian Process</b> emulators to accelerate computationally expensive calculations in cosmology.</p>
 
 <h2 id="experience">Professional Experience</h2>
 
@@ -56,7 +56,7 @@ permalink: /about/
 </div>
 
 <div class="role">
-<h3>Data Scientist · <a href="https://metrixs.net/">Metrixs</a></h3>
+<h3>Data Scientist · Metrixs</h3>
 <p class="role__meta">Oct 2021 – Jul 2022<br><span class="role__place">London</span></p>
 <ul>
   <li>Built machine learning models for consumer and psychometric data.</li>
@@ -64,7 +64,7 @@ permalink: /about/
 </div>
 
 <div class="role">
-<h3>Data Scientist · <a href="https://www.arcturus.io/">Arcturus</a></h3>
+<h3>Data Scientist · Arcturus</h3>
 <p class="role__meta">Jul 2019 – Aug 2020<br><span class="role__place">London</span></p>
 <ul>
   <li>Built a company-rating methodology, plus NLP and geospatial data tools.</li>
@@ -75,8 +75,16 @@ permalink: /about/
 
 <h2>Skills</h2>
 
-<p><b>Methods:</b> Bayesian inference, Gaussian processes, normalising flows, deep learning.<br>
-<b>Tools:</b> Python, PyTorch, JAX, NumPy, SciPy, pandas.</p>
+<dl class="skills">
+  <dt>Quantitative research</dt>
+  <dd>Commodity hedging, Monte Carlo simulation of forward and spot prices, forward-curve construction, backtesting, turnover control.</dd>
+  <dt>Machine learning</dt>
+  <dd>Deep learning, normalising flows, Gaussian processes, diffusion models, emulation of expensive simulations.</dd>
+  <dt>Statistics</dt>
+  <dd>Bayesian inference, MCMC and gradient-based sampling, model selection, uncertainty quantification.</dd>
+  <dt>Tools</dt>
+  <dd>Python, PyTorch, JAX, NumPy, SciPy, pandas.</dd>
+</dl>
 
 <h2>Education</h2>
 

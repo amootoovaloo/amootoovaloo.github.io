@@ -1,0 +1,17 @@
+{%- comment -%}Grouped reading list (Papers, Books) with a search box and a chip
+per group. Usage: {% include reading-list.html groups=site.data.papers noun="papers" %}
+Each item has a title and either a venue and url (papers) or an author (books).{%- endcomment -%}
+{%- capture chips -%}{% for g in include.groups %}<button class="filter-chip" type="button" data-filter-chip="{{ g.group | slugify }}" aria-pressed="false">{{ g.group }}</button>{% endfor %}{%- endcapture -%}
+{% include filter-bar.html label=include.label placeholder=include.placeholder noun=include.noun chips=chips %}
+
+{% for g in include.groups %}{% assign tag = g.group | slugify %}
+<h2 class="reading-list__heading" id="{{ tag }}" data-filter-divider>{{ g.group }}</h2>
+<ul class="reading-list" data-filter-group>
+  {%- for item in g.items %}
+  <li class="reading-list__item" data-filter-item data-filter-tags="{{ tag }}">
+    {% if item.url %}<a class="reading-list__title" href="{{ item.url }}">{{ item.title }}</a>{% else %}<span class="reading-list__title">{{ item.title | escape }}</span>{% endif %}
+    <span class="reading-list__meta">{% if item.author %}{{ item.author | escape }}{% else %}{{ item.venue | escape }}{% endif %}</span>
+  </li>
+  {%- endfor %}
+</ul>
+{% endfor %}

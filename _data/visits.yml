@@ -1,0 +1,102 @@
+# Workshops, schools and research visits at the top of the Workshops & Visits
+# page, newest first. Each entry: year, event, place, and optionally `link`
+# (a section of the page such as "#germany", or a blog post) and
+# `virtual: true` for events held online.
+
+- year: 2024
+  event: "NeurIPS Conference and Workshop"
+  place: "Virtual"
+  virtual: true
+
+- year: 2024
+  event: "LSST Discovery Alliance Catalyst Symposium"
+  place: "Chicago"
+  link: "#united-states"
+
+- year: 2024
+  event: "LSST DESC Collaboration Meeting, ETH Zurich"
+  place: "Zurich"
+  link: "#switzerland"
+
+- year: 2023
+  event: "LSSTC Symposium"
+  place: "Arizona"
+
+- year: 2023
+  event: "LSST@Europe5"
+  place: "Poreč"
+  link: "#croatia"
+
+- year: 2020
+  event: "NeurIPS Conference and Workshop"
+  place: "Virtual"
+  virtual: true
+
+- year: 2020
+  event: "Gaussian Process Summer School (GPSS)"
+  place: "Virtual"
+  virtual: true
+  link: "/blog/2020/07/Virtual-Workshops"
+
+- year: 2020
+  event: "Oxford Machine Learning Summer School (OxML)"
+  place: "Virtual"
+  virtual: true
+  link: "/blog/2020/07/Virtual-Workshops"
+
+- year: 2020
+  event: "International Conference on Machine Learning (ICML)"
+  place: "Virtual"
+  virtual: true
+  link: "/blog/2020/07/Virtual-Workshops"
+
+- year: 2020
+  event: "Machine Learning Summer School (MLSS)"
+  place: "Virtual"
+  virtual: true
+  link: "/blog/2020/07/Virtual-Workshops"
+
+- year: 2020
+  event: "International Conference on Learning Representations (ICLR)"
+  place: "Virtual"
+  virtual: true
+  link: "/blog/2020/07/Virtual-Workshops"
+
+- year: 2018
+  event: "MontePython & CLASS, University of Cambridge"
+  place: "Cambridge"
+
+- year: 2018
+  event: "Yandex School of Data Analysis"
+  place: "London"
+  link: "/blog/2018/02/Yandex-Machine-Learning"
+
+- year: 2018
+  event: "DS3 Data Science Summer School, École Polytechnique"
+  place: "Paris"
+  link: "/blog/2018/06/Data-Science-Summer-School"
+
+- year: 2018
+  event: "Statistical Challenges in 21st Century Cosmology (COSMO21)"
+  place: "Valencia"
+  link: "#spain"
+
+- year: 2016
+  event: "66th Lindau Nobel Laureate Meeting (Physics)"
+  place: "Lindau"
+  link: "#germany"
+
+- year: 2015
+  event: "Astrophysics Department, University College London"
+  place: "London"
+  link: "#united-kingdom"
+
+- year: 2015
+  event: "School of Astrostatistics: Clustering and Classification"
+  place: "Les Houches"
+  link: "#france"
+
+- year: 2015
+  event: "Department of Physics, University of Geneva"
+  place: "Geneva"
+  link: "#switzerland"

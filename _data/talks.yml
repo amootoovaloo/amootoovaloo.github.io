@@ -1,0 +1,106 @@
+# Talks and posters on the Talks page (More → Talks), newest first.
+# Each entry: year, kind (Talk or Poster), title, host, place, and optional
+# note and links.
+
+- year: 2025
+  kind: Talk
+  title: "Bayesian Analysis of Cosmological Data"
+  host: "University College London"
+  place: "London"
+
+- year: 2024
+  kind: Talk
+  title: "Normalising Flows for Joint Cosmological Analysis"
+  host: "Center for Computational Astrophysics, Flatiron Institute"
+  place: "New York"
+
+- year: 2024
+  kind: Talk
+  title: "Machine Learning Methods for Cosmology"
+  host: "Benedictine University"
+  place: "Chicago"
+
+- year: 2024
+  kind: Talk
+  title: "Bayesian Analysis of Cosmological Data"
+  host: "LSST Discovery Alliance Catalyst Symposium, Northwestern University"
+  place: "Chicago"
+  links:
+    - label: Symposium
+      url: "https://lsstdiscoveryalliance.org/lsst-discovery-alliance-programs/catalyst-fellowship/lsst-da-catalyst-symposium-2024/"
+
+- year: 2024
+  kind: Talk
+  title: "Normalising Flows and Gradient-Based Samplers in Cosmology"
+  host: "LSST DESC Collaboration Meeting, ETH Zurich"
+  place: "Zurich"
+
+- year: 2023
+  kind: Talk
+  title: "Parameter Inference via Emulation in Cosmology"
+  host: "Imperial College London"
+  place: "London"
+
+- year: 2023
+  kind: Talk
+  title: "Emulation and Assessment of Gradient-Based Samplers"
+  host: "LSSTC Symposium"
+  place: "Arizona"
+  note: "given remotely"
+
+- year: 2022
+  kind: Talk
+  title: "Unified Framework for Galaxy Classification"
+  host: "University of Mauritius"
+  place: "Mauritius"
+
+- year: 2022
+  kind: Talk
+  title: "Machine Learning for Astrophysics and Cosmology"
+  host: "OATML, University of Oxford"
+  place: "Oxford"
+
+- year: 2021
+  kind: Talk
+  title: "Emulator for the 3D Matter Power Spectrum"
+  host: "Online"
+  place: "London"
+
+- year: 2020
+  kind: Talk
+  title: "Gaussian Processes and MOPED Compression for Weak Lensing"
+  host: "ICLR 2020 workshop: Fundamental Science in the era of AI"
+  place: "Virtual"
+  links:
+    - label: Video
+      url: "https://slideslive.com/38926202/gaussian-processes-emulator-and-moped-for-weak-lensing"
+
+- year: 2019
+  kind: Poster
+  title: "Bayesian Inference Methods for Cosmology"
+  host: "Imperial College London"
+  place: "London"
+
+- year: 2018
+  kind: Talk
+  title: "Emulation in Weak Lensing Cosmology"
+  host: "Paris Institute of Astrophysics"
+  place: "Paris"
+
+- year: 2016
+  kind: Talk
+  title: "Bayes Factor using MCMC"
+  host: "SKA SA Conference"
+  place: "Cape Town"
+
+- year: 2016
+  kind: Talk
+  title: "Presentation Skills: The Presentation Secrets of Steve Jobs"
+  host: "University of Mauritius"
+  place: "Mauritius"
+
+- year: 2015
+  kind: Poster
+  title: "Study of the Gaussian Linear Model"
+  host: "SKA SA Conference"
+  place: "Cape Town"

@@ -3,6 +3,7 @@ layout: post
 title: A-Level Mathematics (9709)
 permalink: /teaching/A-Level-Mathematics/
 mathjax: true
+collapsible: true
 date:   2017-02-09 06:00:00
 author: A.Mootoovaloo
 ---
