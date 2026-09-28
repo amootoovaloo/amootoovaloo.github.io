@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Luminaries
-permalink: /luminary/
+permalink: /luminaries/
 ---
 
 <p align="justify">Throughout his career, he has been fortunate to meet leading figures in their fields. Below are photographs with some of them: role models whose work continues to open up new ways of seeing and new possibilities.</p>

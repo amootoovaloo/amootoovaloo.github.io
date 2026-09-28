@@ -478,7 +478,7 @@ function copyWithFeedback(text, el, label) {
 // ---------------------------------------------------------------- page load
 
 // Re-apply #section links once the page (and its lazy images) have loaded,
-// so links such as /travel/#europe land on the right heading.
+// so links such as /workshops/#europe land on the right heading.
 window.addEventListener('load', function () {
   if (!location.hash) return;
   var el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
