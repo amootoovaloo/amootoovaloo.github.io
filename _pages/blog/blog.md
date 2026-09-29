@@ -19,4 +19,3 @@ permalink: /blog/
 {% endfor %}
 </ul>
 
-<p><a href="{{ '/feed.xml' | prepend: site.baseurl }}">RSS feed</a></p>
