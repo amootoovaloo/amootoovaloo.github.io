@@ -49,7 +49,7 @@ $$
 <p><b><font size="3">Our Implementation</font></b></p>
 
 <p align="justify">
-We start with just four training points (generated using Latin Hypercube Sampling, <a href="https://en.wikipedia.org/wiki/Latin_hypercube_sampling">LHS</a>), shown in the first four rows of the table below. We then use the Upper Confidence Bound (UCB) acquisition function (with $\alpha=15$) to iteratively add two points (the last two rows, in red) to the Gaussian Process model. See the algorithm below for further details.
+We start with just four training points (generated using Latin Hypercube Sampling, <a href="https://en.wikipedia.org/wiki/Latin_hypercube_sampling">LHS</a>), shown in the first four rows of the table below. We then use the Upper Confidence Bound (UCB) acquisition function (with $\alpha=15$) to iteratively add two points (the last two rows, in bold) to the Gaussian Process model. See the algorithm below for further details.
 </p>
 
 
@@ -60,8 +60,8 @@ We start with just four training points (generated using Latin Hypercube Samplin
  <tr><td align="center">1.0064</td><td align="center">-17.2318</td></tr>
  <tr><td align="center">1.0223</td><td align="center">-18.1605</td></tr>
  <tr><td align="center">1.0511</td><td align="center">-26.2248</td></tr>
- <tr><td align="center"><font color="red">0.9860</font></td><td align="center"><font color="red">-19.7343</font></td></tr>
- <tr><td align="center"><font color="red">1.0369</font></td><td align="center"><font color="red">-21.2069</font></td></tr>
+ <tr class="is-new"><td align="center">0.9860</td><td align="center">-19.7343</td></tr>
+ <tr class="is-new"><td align="center">1.0369</td><td align="center">-21.2069</td></tr>
 </tbody></table>
 
 <img src="/images/blog/likelihood-emulation/algorithm.webp" alt="Bayesian Optimisation algorithm for iteratively adding training points" align="right" width = "600" style = "margin-right: 10px; margin-bottom: 10px"/>

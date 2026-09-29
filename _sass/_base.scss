@@ -41,6 +41,17 @@ a {
     &:hover { color: var(--accent-hover); text-decoration: underline; }
 }
 
+// Links within text are underlined, so they can be told apart from the
+// surrounding words without relying on colour (buttons, titles and cards
+// carry a class and keep their own styles).
+.prose a:not([class]) {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: currentColor;
+    text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+    &:hover { text-decoration-color: currentColor; }
+}
+
 img, video, iframe { max-width: 100%; }
 img { height: auto; }
 

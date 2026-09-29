@@ -157,6 +157,9 @@
         margin: .4em 1.75em 1em 0;
         th { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
         td { border-color: var(--border); }
+        // Rows a post highlights (e.g. newly added points): bold as well as
+        // coloured, so the highlight does not rely on colour alone.
+        tr.is-new td { color: var(--accent); font-weight: 650; }
     }
 
     // Font Awesome external-link glyphs in reading lists.

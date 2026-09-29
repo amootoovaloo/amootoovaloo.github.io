@@ -123,4 +123,17 @@
     &[open] > summary::before { transform: rotate(45deg); }
 }
 
-.collapsible__body { padding: 0 0 1rem 22px; }
+.collapsible__body {
+    padding: 0 0 1rem 22px;
+
+    // Sub-sections within a paper (e.g. Mechanics, Statistics): small labels
+    // in the accent colour, which adapts to the light and dark themes.
+    h3 {
+        margin: 1.1em 0 .3em;
+        color: var(--accent);
+        font-size: .8rem;
+        font-weight: 650;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+    }
+}

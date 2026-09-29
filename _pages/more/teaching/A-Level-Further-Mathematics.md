@@ -6,8 +6,6 @@ mathjax: true
 collapsible: true
 date:   2017-02-09 06:00:00
 author: A.Mootoovaloo
-extra_css: |
-  h3   {color: blue;}
 ---
 
 

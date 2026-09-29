@@ -338,7 +338,7 @@
     margin-top: .55em;
 }
 
-.pub__star { color: #e0a100; }
+.pub__star { color: var(--star); }
 
 .pub__bibtex {
     margin: .6em 0 0;

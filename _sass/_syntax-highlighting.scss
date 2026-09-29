@@ -1,12 +1,13 @@
 // Rouge syntax highlighting, themed through the light/dark tokens.
 
 :root {
-    --syn-comment: #6a737d;
+    --syn-comment: #636c76;
     --syn-keyword: #cf222e;
     --syn-string:  #0a3069;
     --syn-number:  #0550ae;
     --syn-name:    #8250df;
     --syn-builtin: #953800;
+    --syn-inserted: #1a7f37;
 }
 
 @mixin dark-syntax {
@@ -16,6 +17,7 @@
     --syn-number:  #79c0ff;
     --syn-name:    #d2a8ff;
     --syn-builtin: #ffa657;
+    --syn-inserted: #56d364;
 }
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) { @include dark-syntax; }
@@ -31,5 +33,5 @@
     .nb, .bp, .vc, .vg, .vi { color: var(--syn-builtin); }
     .err { color: var(--syn-keyword); }
     .gd { color: var(--syn-keyword); }
-    .gi { color: #1a7f37; }
+    .gi { color: var(--syn-inserted); }
 }
