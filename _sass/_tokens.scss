@@ -8,20 +8,20 @@ $bp-nav:    880px;
 
 @mixin light-theme {
     color-scheme: light;
-    --bg:           #ffffff;
-    --surface:      #f5f7fa;
-    --surface-2:    #eef2f7;
+    --bg:           #f7f8fa;
+    --surface:      #eef1f5;
+    --surface-2:    #e6eaf0;
     --text:         #16191f;
     --text-2:       #414a5a;
-    --muted:        #687184;
-    --border:       #e3e7ee;
+    --muted:        #626b7d;
+    --border:       #dce1e8;
     --accent:       #1f5eb8;
     --accent-hover: #164a95;
     --accent-soft:  #e9f1fc;
     --star:         #b07d00;
     --on-accent:    #ffffff;
     --shadow:       0 1px 2px rgba(16, 24, 40, .04), 0 6px 20px rgba(16, 24, 40, .06);
-    --header-bg:    rgba(255, 255, 255, .85);
+    --header-bg:    rgba(247, 248, 250, .85);
 }
 
 @mixin dark-theme {
