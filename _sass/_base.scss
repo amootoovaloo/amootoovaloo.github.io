@@ -16,6 +16,13 @@ body {
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
+
+    // At least one screen tall, with the main content taking the spare
+    // space, so the footer sits at the bottom of the window on short pages.
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 h1, h2, h3, h4, h5, h6 {

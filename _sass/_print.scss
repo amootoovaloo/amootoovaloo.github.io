@@ -17,7 +17,7 @@
 
     html { font-size: 9.5pt; }
     html, body { background: #fff !important; }
-    body { font-size: 9.5pt; line-height: 1.4; }
+    body { font-size: 9.5pt; line-height: 1.4; display: block; min-height: 0; }
     .prose { font-size: 9.5pt; }
     .prose p, .prose li { line-height: 1.4; }
     .container, .container--prose { max-width: none; padding: 0; }
