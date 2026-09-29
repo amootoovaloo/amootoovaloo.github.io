@@ -192,27 +192,6 @@ function copyWithFeedback(text, el, label) {
   });
 })();
 
-// Section links: hovering a heading shows "#"; clicking it copies a direct
-// link to that section (or simply follows it where copying is unavailable).
-(function () {
-  document.querySelectorAll('.prose h2, .prose h3').forEach(function (h) {
-    if (h.closest('.pub-list, .timeline, figure')) return;
-    var id = ensureId(h);
-    var a = document.createElement('a');
-    a.className = 'heading-anchor';
-    a.href = '#' + id;
-    a.setAttribute('aria-label', 'Copy link to this section');
-    a.textContent = '#';
-    a.addEventListener('click', function (e) {
-      if (!canCopy) return;
-      e.preventDefault();
-      history.replaceState(null, '', '#' + id);
-      copyWithFeedback(location.href.split('#')[0] + '#' + id, a);
-    });
-    h.appendChild(a);
-  });
-})();
-
 // "Copy" button on code blocks.
 (function () {
   if (!canCopy) return;

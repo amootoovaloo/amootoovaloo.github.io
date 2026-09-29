@@ -1,5 +1,5 @@
 // Reading aids on posts and pages: the table of contents in the margin,
-// reading progress, section links, code copy and collapsible sections.
+// reading progress, code copy and collapsible sections.
 
 // On wide screens the table of contents moves into the left margin and
 // follows the reader down the post, highlighting the current section.
@@ -73,30 +73,6 @@
     transform: scaleX(var(--progress, 0));
     pointer-events: none;
 }
-
-// Section links: a "#" beside headings that copies a direct link.
-.heading-anchor {
-    margin-left: .4em;
-    color: var(--muted);
-    font-weight: 400;
-    text-decoration: none;
-    opacity: 0;
-    transition: opacity .15s ease, color .15s ease;
-    &:hover, &:focus-visible { color: var(--accent); text-decoration: none; }
-    &:focus-visible { opacity: 1; }
-
-    &.is-copied { opacity: 1; color: var(--accent); }
-    &.is-copied::after {
-        content: "Link copied";
-        margin-left: .5em;
-        font-size: .8rem;
-        font-weight: 550;
-        vertical-align: middle;
-    }
-}
-.prose h2:hover .heading-anchor,
-.prose h3:hover .heading-anchor { opacity: 1; }
-@media (hover: none) { .heading-anchor { opacity: .5; } }
 
 // Code blocks: a "Copy" button in the top-right corner.
 .code-block {
