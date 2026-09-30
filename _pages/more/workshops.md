@@ -56,13 +56,13 @@ extra_css: |
 
 {% include image.html url="/images/workshops/africa/ml-jedi-mauritius-2015.webp" caption="Machine Learning JEDI, Mauritius, 2015" width=450 align="left" %}
 
-<p align="justify">The <a href="https://sites.google.com/a/ska.ac.za/ml-jedi-mauritius/home">Mauritius Machine Learning JEDI</a> took place from 16 to 26 July 2015 at <a href="https://www.villasun.mu/">Villasun</a>, with funding from SKA SA and the Newton Fund. The workshop brought together experts including <a href="https://www.linkedin.com/in/jasper-horrell-64a93937">Dr Jasper Horrell</a> (Science Processing Manager at SKA SA) and <a href="https://www.linkedin.com/in/datamusing">Dr Sudeep Das</a> (Senior Researcher at <a href="https://www.netflix.com/">Netflix</a>, formerly a data scientist at <a href="https://www.opentable.com/start/home">OpenTable</a>), among other researchers.</p>
+<p align="justify">The Mauritius Machine Learning JEDI took place from 16 to 26 July 2015 at <a href="https://www.villasun.mu/">Villasun</a>, with funding from SKA SA and the Newton Fund. The workshop brought together experts including <a href="https://www.linkedin.com/in/jasper-horrell-64a93937">Dr Jasper Horrell</a> (Science Processing Manager at SKA SA) and <a href="https://www.linkedin.com/in/datamusing">Dr Sudeep Das</a> (Senior Researcher at <a href="https://www.netflix.com/">Netflix</a>, formerly a data scientist at <a href="https://www.opentable.com/start/home">OpenTable</a>), among other researchers.</p>
 
 <p align="justify">The participants, mostly undergraduates from the science and engineering faculties of the University of Mauritius, tackled two imaging problems. The first, from radio astronomy, involved counting the point sources and extended sources in a sky image, for which a friends-of-friends (FoF) algorithm was proposed. The second was diabetic retinopathy detection, based on a <a href="https://www.kaggle.com/c/diabetic-retinopathy-detection">Kaggle</a> competition.</p>
 
 {% include image.html url="/images/workshops/africa/minijedi-mauritius-2016.webp" caption="Astro Data Science miniJEDI, 2016" width=400 align="right" %}
 
-<p align="justify">Many Mauritian students study in South Africa with financial support from SKA SA and other funding agencies. Each year, on returning to Mauritius, they organise a short workshop to share their knowledge with students there. He served on the organising committee of the <a href="https://sites.google.com/site/minijedi2016/home">Astro Data Science miniJEDI</a>, held from 4 to 8 January 2016.</p>
+<p align="justify">Many Mauritian students study in South Africa with financial support from SKA SA and other funding agencies. Each year, on returning to Mauritius, they organise a short workshop to share their knowledge with students there. He served on the organising committee of the Astro Data Science miniJEDI, held from 4 to 8 January 2016.</p>
 
 <p align="justify">The first few days introduced participants to Python programming. He gave a session on presentation skills, inspired by the book <i>The Presentation Secrets of Steve Jobs</i>, as well as an introductory talk on Bayesian statistics. In the final two days, participants worked on data analysis and exoplanet detection, gaining hands-on coding experience.</p>
 
@@ -88,7 +88,7 @@ extra_css: |
 
 <p align="justify">In 2015, he also visited the <a href="https://www.idiap.ch/">Idiap</a> Research Institute, an independent research institute in Martigny, in the Swiss canton of Valais, affiliated with <a href="https://www.epfl.ch/">EPFL</a> (École Polytechnique Fédérale de Lausanne).</p>
 
-<p align="justify">There he met James Newling, a former Master's student of Prof. Bruce Bassett, who was completing his PhD in machine learning with <a href="https://www.idiap.ch/~fleuret/">François Fleuret</a> at Idiap and EPFL, and attended a talk James gave on his research to members of the group.</p>
+<p align="justify">There he met James Newling, a former Master's student of Prof. Bruce Bassett, who was completing his PhD in machine learning with François Fleuret at Idiap and EPFL, and attended a talk James gave on his research to members of the group.</p>
 
 {% include image.html url="/images/workshops/europe/eth-zurich.webp" caption="ETH Zurich, Switzerland" width=400 align="right" %}
 

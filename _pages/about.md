@@ -99,7 +99,7 @@ permalink: /about/
 <div class="role">
 <h3>MSc in Astrophysics and Space Science · University of Cape Town</h3>
 <p class="role__meta">2015 – 2016</p>
-<p align="justify">Research project on Bayesian statistics and radio astronomy at <a href="https://www.aims.ac.za/">AIMS</a>, through <a href="https://www.star.ac.za/">NASSP</a>.</p>
+<p align="justify">Research project on Bayesian statistics and radio astronomy at <a href="https://aims.ac.za/">AIMS</a>, through <a href="https://www.star.ac.za/">NASSP</a>.</p>
 </div>
 
 <div class="role">
@@ -111,7 +111,7 @@ permalink: /about/
 <!-- <h3>Consultant - Data Science (<a href="https://www.voxcroft.com/">Voxcroft Analytics</a>)</h3>
 <p align="justify">At Voxcroft, he was involved in two projects related to Natural Language Processing. The first project involved the analysis of Twitter data while the second project was on speech-to-text analysis.</p> -->
 <!--
-<h3>Lead Data Scientist (<a href="https://vensy.co.uk/">Vensy</a>)</h3>
+<h3>Lead Data Scientist (Vensy)</h3>
 <p align="justify">Much of his work at Vensy was to investigate a Twitter database in order to understand the engagement rate of atheletes, which eventually helps in driving the business forward.</p>
 
 <h3>Data Scientist (<a href="https://gimmer.com/">Gimmer</a>)</h3>

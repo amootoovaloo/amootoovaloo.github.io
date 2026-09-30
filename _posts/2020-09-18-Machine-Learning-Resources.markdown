@@ -34,7 +34,7 @@ description: "Curated courses and lectures on machine learning and deep learning
 
 <ol>
 
-<li>Deep Learning with PyTorch (<a href="https://atcold.github.io/pytorch-Deep-Learning/">Lecture Notes</a>, <a href="https://www.youtube.com/playlist?list=PLLHTzKZzVU9eaEyErdV26ikyolxOsz6mq">Videos</a>) by Prof. Yann LeCun and Alfredo Canziani</li>
+<li>Deep Learning with PyTorch (<a href="https://www.youtube.com/playlist?list=PLLHTzKZzVU9eaEyErdV26ikyolxOsz6mq">Videos</a>) by Prof. Yann LeCun and Alfredo Canziani</li>
 
 <li>MIT 6. S191 Introduction to Deep Learning (<a href="https://introtodeeplearning.com/">Lecture Notes</a>, <a href="https://www.youtube.com/playlist?list=PLtBw6njQRU-rwp5__7C0oIVt26ZgjG9NI">Videos</a>)</li>
 
