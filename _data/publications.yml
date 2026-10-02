@@ -6,7 +6,7 @@
 - title: |-
     KiDS+VIKING-450 cosmology with Bayesian hierarchical model redshift distributions
   authors: |-
-    George T. Kyriacou, <strong class="me">Arrykrishna Mootoovaloo</strong>, Alan F. Heavens, Andrew H. Jaffe, Florent Leclercq, Konrad Kuijken
+    G. T. Kyriacou, <strong class="me">A. Mootoovaloo</strong>, A. F. Heavens, A. H. Jaffe, F. Leclercq, K. Kuijken
   venue: "MNRAS"
   links:
     - label: arXiv
@@ -99,7 +99,7 @@
 - title: |-
     Extreme data compression for Bayesian model comparison
   authors: |-
-    Alan F. Heavens, <strong class="me">Arrykrishna Mootoovaloo</strong>, Roberto Trotta, Elena Sellentin
+    A. F. Heavens, <strong class="me">A. Mootoovaloo</strong>, R. Trotta, E. Sellentin
   venue: "JCAP"
   links:
     - label: Journal
@@ -128,7 +128,7 @@
 - title: |-
     Analytical marginalisation over photometric redshift uncertainties in cosmic shear analyses
   authors: |-
-    Jaime Ruiz-Zapatero, Boryana Hadzhiyska, David Alonso, Pedro G. Ferreira, Carlos García-García, <strong class="me">Arrykrishna Mootoovaloo</strong>
+    J. Ruiz-Zapatero, B. Hadzhiyska, D. Alonso, P. G. Ferreira, C. García-García, <strong class="me">A. Mootoovaloo</strong>
   venue: "MNRAS"
   links:
     - label: Journal
@@ -153,7 +153,7 @@
 - title: |-
     Kernel-Based Emulator for the 3D Matter Power Spectrum from CLASS
   authors: |-
-    <strong class="me">Arrykrishna Mootoovaloo</strong>, Andrew Jaffe, Alan Heavens, Florent Leclercq
+    <strong class="me">A. Mootoovaloo</strong>, A. Jaffe, A. Heavens, F. Leclercq
   venue: "Astronomy and Computing"
   links:
     - label: Journal
@@ -186,7 +186,7 @@
 - title: |-
     Fast Approximate Model for the 3D Matter Power Spectrum
   authors: |-
-    <strong class="me">Arrykrishna Mootoovaloo</strong>, Andrew Jaffe, Alan Heavens, Florent Leclercq
+    <strong class="me">A. Mootoovaloo</strong>, A. Jaffe, A. Heavens, F. Leclercq
   venue: "NeurIPS 2021"
   year: 2021
   abstract: |-
@@ -195,7 +195,7 @@
 - title: |-
     Data Augmentation in a Hierarchical-Based Classification scheme for Variable Stars
   authors: |-
-    Zafiirah Hosenie, Robert Lyon, Benjamin Stappers, <strong class="me">Arrykrishna Mootoovaloo</strong>, Vanessa McBrides
+    Z. Hosenie, R. Lyon, B. Stappers, <strong class="me">A. Mootoovaloo</strong>, V. McBride
   venue: "NeurIPS 2020"
   year: 2020
   abstract: |-
@@ -204,7 +204,7 @@
 - title: |-
     Parameter Inference for Weak Lensing using Gaussian Processes and MOPED
   authors: |-
-    <strong class="me">Arrykrishna Mootoovaloo</strong>, Alan Heavens, Andrew Jaffe, Florent Leclercq
+    <strong class="me">A. Mootoovaloo</strong>, A. Heavens, A. Jaffe, F. Leclercq
   venue: "MNRAS"
   links:
     - label: Journal
@@ -236,7 +236,7 @@
 - title: |-
     Gaussian Processes and MOPED Compression for Weak Lensing
   authors: |-
-    <strong class="me">Arrykrishna Mootoovaloo</strong>, Alan Heavens, Andrew Jaffe, Florent Leclercq
+    <strong class="me">A. Mootoovaloo</strong>, A. Heavens, A. Jaffe, F. Leclercq
   venue: "ICLR 2020"
   links:
     - label: Workshop
@@ -254,7 +254,7 @@
 - title: |-
     Imbalance Learning for Variable Star Classification
   authors: |-
-    Zafiirah Hosenie, Robert Lyon, Benjamin Stappers, <strong class="me">Arrykrishna Mootoovaloo</strong>, Vanessa McBride
+    Z. Hosenie, R. Lyon, B. Stappers, <strong class="me">A. Mootoovaloo</strong>, V. McBride
   venue: "MNRAS"
   links:
     - label: Journal
@@ -285,7 +285,7 @@
 - title: |-
     Comparing Multi-class, Binary and Hierarchical Machine Learning Classification schemes for variable stars
   authors: |-
-    Zafiirah Hosenie, Robert Lyon, Benjamin Stappers, <strong class="me">Arrykrishna Mootoovaloo</strong>
+    Z. Hosenie, R. Lyon, B. Stappers, <strong class="me">A. Mootoovaloo</strong>
   venue: "MNRAS"
   links:
     - label: Journal
@@ -314,7 +314,7 @@
 - title: |-
     Marginal Likelihoods from Monte Carlo Markov Chains
   authors: |-
-    Alan Heavens, Yabebal Fantaye, <strong class="me">Arrykrishna Mootoovaloo</strong>, Hans Eggers, Zafiirah Hosenie, Steve Kroon, Elena Sellentin
+    A. Heavens, Y. Fantaye, <strong class="me">A. Mootoovaloo</strong>, H. Eggers, Z. Hosenie, S. Kroon, E. Sellentin
   venue: "Preprint"
   links:
     - label: arXiv
@@ -338,7 +338,7 @@
 - title: |-
     No evidence for extensions to the standard cosmological model
   authors: |-
-    Alan Heavens, Yabebal Fantaye, Elena Sellentin, Hans Eggers, Zafiirah Hosenie, Steve Kroon, <strong class="me">Arrykrishna Mootoovaloo</strong>
+    A. Heavens, Y. Fantaye, E. Sellentin, H. Eggers, Z. Hosenie, S. Kroon, <strong class="me">A. Mootoovaloo</strong>
   venue: "Physical Review Letters"
   links:
     - label: Journal
@@ -368,7 +368,7 @@
 - title: |-
     Bayes Factors via Savage-Dickey Supermodels
   authors: |-
-    <strong class="me">Arrykrishna Mootoovaloo</strong>, Bruce A. Bassett, Martin Kunz
+    <strong class="me">A. Mootoovaloo</strong>, B. A. Bassett, M. Kunz
   venue: "Preprint"
   links:
     - label: arXiv
